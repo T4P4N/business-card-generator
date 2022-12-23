@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import Patrick from "./Templates/Patrick";
-import { FiInfo } from "react-icons/fi";
 import exportAsImage from "./exportAsImage";
 import ListGradients from "./Components/ListGradients";
 import Modal from "./Components/Modal";
+import Mark from "./Templates/Mark";
 
 function App() {
   const [title, setTitle] = useState("Patrick Bateman");
@@ -22,15 +22,10 @@ function App() {
   const exportRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [fontPickerOpen, setFontPickerOpen] = useState(false);
-  // {
-  //   name: 'Salem',
-  //   direction: 'bg-gradient-to-b',
-  //   colors: 'from-gray-900 via-purple-900 to-violet-600'
-  // },
-  // bg-gradient-to-b from-gray-900 via-purple-900 to-violet-600
+
   return (
     <>
-      <Patrick
+      <Mark
         title={title}
         description={description}
         addresss={addresss}
