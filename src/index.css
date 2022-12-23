@@ -13,7 +13,7 @@
   padding-inline: 0.5em;
 }
 
-input {
+input[type=text] {
   font-family: 'Cinzel', serif;
   font-size: large;
   width: 100%;

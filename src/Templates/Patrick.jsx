@@ -17,10 +17,11 @@ function Patrick({
         maxWidth: "500px",
         marginInline: "auto",
         marginTop: "1em",
+        color: `${fontColor}`,
       }}
     >
       <div
-        className={`relative ${fontColor} ${gradient}`}
+        className={`relative ${gradient}`}
         style={{
           maxWidth: "500px",
           height: "276px",
