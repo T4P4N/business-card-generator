@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* .card-wrapper {} */
+
+.form-wrapper {
+  margin-inline: auto;
+  margin-top: 1em;
+  max-width: 32rem;
+  padding-inline: 0.5em;
+}
+
+input {
+  font-family: 'Cinzel', serif;
+  font-size: large;
+  width: 100%;
+  padding: 0.5em 0.8em;
+  border-radius: 2px;
+  outline: 1px solid rgb(194, 194, 194);
+}
+
+input:focus-visible,
+input:focus {
+  outline: 1px solid rgb(65, 65, 65);
+}
+
+.font-paul {
+  font-family: 'Cinzel', serif;
+}
