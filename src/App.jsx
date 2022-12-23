@@ -57,7 +57,7 @@ function App() {
           type="text"
           placeholder="Phone"
           onChange={(e) => {
-            setPhone();
+            setPhone(e.target.value);
           }}
         />
         <input
