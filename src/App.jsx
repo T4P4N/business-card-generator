@@ -90,7 +90,7 @@ function App() {
           <button
             className="p-5 outline outline-1
             outline-slate-400 text-slate-500
-            rounded hover:cursor-pointer"
+            rounded hover:cursor-pointer font-paul"
             onClick={() => {
               setIsOpen(!isOpen);
             }}
@@ -102,7 +102,7 @@ function App() {
               <button
                 className="p-5 outline outline-1
                 outline-slate-400 text-slate-500
-                rounded hover:cursor-pointer"
+                rounded hover:cursor-pointer font-paul"
                 onClick={() => {
                   setIsOpen(false);
                 }}
@@ -122,7 +122,7 @@ function App() {
           <div
             className="p-5 outline outline-1
             outline-slate-400 text-slate-500
-            rounded hover:cursor-pointer"
+            rounded hover:cursor-pointer font-paul"
             onClick={() => {
               setFontPickerOpen(!fontPickerOpen);
             }}

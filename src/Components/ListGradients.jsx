@@ -19,7 +19,7 @@ function ListGradients({ setGradient }) {
         >
           <div
             className="absolute m-auto left-0 right-0 bottom-1 bg-black text-white uppercase font-bold
-          rounded p-2 text-center"
+          rounded p-2 text-center  font-paul"
           >
             {grad.name}
           </div>
