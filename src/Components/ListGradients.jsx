@@ -10,16 +10,16 @@ function ListGradients({ setGradient }) {
           } rounded relative hover:cursor-pointer`}
           key={idx}
           style={{
-            height: "140px",
-            width: "140px",
+            height: "100px",
+            width: "100px",
           }}
           onClick={() => {
             setGradient(grad.direction + " " + grad.colors);
           }}
         >
           <div
-            className="absolute m-auto left-0 right-0 bottom-1 bg-black text-white uppercase font-bold
-          rounded p-2 text-center  font-paul"
+            className="absolute m-auto left-0 right-0 bottom-1 bg-black text-white uppercase
+          rounded p-2 text-center font-paul text-sm"
           >
             {grad.name}
           </div>

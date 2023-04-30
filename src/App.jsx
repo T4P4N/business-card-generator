@@ -1,9 +1,9 @@
-import { useRef, useState } from "react";
-import Patrick from "./Templates/Patrick";
+import { Suspense, lazy, useRef, useState } from "react";
 import exportAsImage from "./exportAsImage";
 import ListGradients from "./Components/ListGradients";
-import Modal from "./Components/Modal";
-import Mark from "./Templates/Mark";
+import Skeleton from "./Components/Skeleton";
+import Rodal from "rodal";
+import "rodal/lib/rodal.css";
 
 function App() {
   const [title, setTitle] = useState("Patrick Bateman");
@@ -22,20 +22,65 @@ function App() {
   const exportRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [fontPickerOpen, setFontPickerOpen] = useState(false);
+  const [themeName, setThemeName] = useState("Patrick");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const Template = lazy(() => import(`./Templates/${themeName}.jsx`));
+
+  const themeNames = ["Patrick", "Mark"];
 
   return (
     <>
-      <Mark
-        title={title}
-        description={description}
-        addresss={addresss}
-        phone={phone}
-        brandName={brandName}
-        brandline={brandline}
-        gradient={gradient}
-        fontColor={fontColor}
-        childRef={exportRef}
-      />
+      <Rodal
+        visible={isOpen}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+        height={500}
+        width={390}
+        showCloseButton={false}
+      >
+        <div className="flex overflow-scroll h-[470px] overflow-x-hidden">
+          <ListGradients setGradient={setGradient} />
+        </div>
+      </Rodal>
+
+      <Suspense fallback={<Skeleton />}>
+        <Template
+          title={title}
+          description={description}
+          addresss={addresss}
+          phone={phone}
+          brandName={brandName}
+          brandline={brandline}
+          gradient={gradient}
+          fontColor={fontColor}
+          childRef={exportRef}
+        />
+      </Suspense>
+      <div className="flex justify-between max-w-lg mx-auto px-2">
+        <button
+          onClick={() => {
+            if (currentIndex > 0) {
+              setThemeName(themeNames[currentIndex - 1]);
+              setCurrentIndex(currentIndex - 1);
+            }
+          }}
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => {
+            console.log(currentIndex, themeNames.length);
+            if (currentIndex < themeNames.length - 1) {
+              setThemeName(themeNames[currentIndex + 1]);
+              setCurrentIndex(currentIndex + 1);
+            }
+          }}
+          className="p-1"
+        >
+          Next
+        </button>
+      </div>
 
       <div className="flex flex-col items-start justify-center form-wrapper gap-2 w-100">
         <input
@@ -107,12 +152,6 @@ function App() {
             </>
           ) : null}
         </div>
-        {isOpen ? (
-          <Modal
-            setIsOpen={setIsOpen}
-            content={<ListGradients setGradient={setGradient} />}
-          />
-        ) : null}
         <div className="flex flex-row items-center w-full justify-between gap-2">
           <div
             className="p-5 outline outline-1
