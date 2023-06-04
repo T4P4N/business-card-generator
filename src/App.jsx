@@ -1,4 +1,4 @@
-import { Suspense, lazy, useRef, useState } from "react";
+import { Suspense, lazy, useRef, useState, memo } from "react";
 import exportAsImage from "./exportAsImage";
 import ListGradients from "./Components/ListGradients";
 import Skeleton from "./Components/Skeleton";
@@ -24,7 +24,7 @@ function App() {
   const [fontPickerOpen, setFontPickerOpen] = useState(false);
   const [themeName, setThemeName] = useState("Patrick");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const Template = lazy(() => import(`./Templates/${themeName}.jsx`));
+  const Template = memo(lazy(() => import(`./Templates/${themeName}.jsx`)));
 
   const themeNames = ["Patrick", "Mark"];
 
